@@ -1,0 +1,26 @@
+{
+  "name": "enye-challenge",
+  "version": "1.0.0",
+  "description": "A simple todo app with Nextjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "start": "next start",
+    "build": "next build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Nextjs",
+    "React",
+    "Nodejs",
+    "JavaScript",
+    "WebDevelopment"
+  ],
+  "author": "Uzoanya Dominic",
+  "license": "MIT",
+  "dependencies": {
+    "next": "^8.0.3",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  }
+}
