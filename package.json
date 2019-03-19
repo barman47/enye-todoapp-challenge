@@ -4,7 +4,7 @@
   "description": "A simple todo app with Nextjs",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "nodemon server.js",
     "start": "next start",
     "build": "next build",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,8 +19,13 @@
   "author": "Uzoanya Dominic",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.16.4",
+    "isomorphic-unfetch": "^3.0.0",
     "next": "^8.0.3",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
   }
 }

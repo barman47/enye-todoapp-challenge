@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import fetch from 'isomorphic-unfetch';
+import { server } from '../config';
 import Layout from '../components/Layout';
 import Todos from '../components/Todos';
 import AddTodo from '../components/AddTodo';
@@ -7,13 +9,7 @@ class Index extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
-            todos: [
-                {
-                    id: 1,
-                    description: 'This is a default todo.',
-                    completed: false
-                }
-            ]
+            todos: props.todos
         }
     }
 
@@ -58,15 +54,23 @@ class Index extends React.Component {
                 </Head>
                 <section>
                     <AddTodo addTodo={this.addTodo} />
-                    {/*<TodoItem />*/}
-                    <Todos 
-                        todos={this.state.todos} 
-                        markComplete={this.markComplete} 
-                        delTodo={this.delTodo} 
+                    <Todos
+                        todos={this.state.todos}
+                        markComplete={this.markComplete}
+                        delTodo={this.delTodo}
                     />
                 </section>
             </Layout>
         );
+    }
+}
+
+Index.getInitialProps = async function() {
+    const res = await fetch(`${server}/getTodos`)
+    const data = await res.json()
+  
+    return {
+        todos: data
     }
 }
 
